@@ -7,6 +7,7 @@ set -u
 # variables
 REPO_FOLDER="Store-Manager-React"
 REMOTE_REPO="https://github.com/mariamiah/Store-Manager-React.git"
+BASE_URL="https://storemanager15.herokuapp.com"
 function updateInstance(){
     echo "---------Update Instance----------"
     sudo apt-get update
@@ -77,7 +78,7 @@ function installPm2(){
 function startApplication(){
      cd $REPO_FOLDER
      npm run build
-     sudo pm2 start server.js
+     sudo pm2 start -f server.js
      echo "...APPLICATION DEPLOYMENT SUCCESSFUL....."
      echo "....Please navigate the address below and find your deployed application..."
      sudo curl ifconfig.co 
